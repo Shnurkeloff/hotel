@@ -45,6 +45,11 @@
                             <span>Бронирования</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('registration.index') }}" class="waves-effect">
+                            <span>Регистрация</span>
+                        </a>
+                    </li>
                     <li class="menu-title">Дополнительная информация</li>
                     <li>
                         <a href="" class="waves-effect">

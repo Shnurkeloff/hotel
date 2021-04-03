@@ -9,15 +9,13 @@ class Registration extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ['date_settlement', 'date_eviction', 'contract_id', 'bill_id'];
+
     public function contract() {
         return $this->belongsTo(Contract::class);
     }
 
-    public function room() {
-        return $this->belongsTo(Room::class);
-    }
-
-    public function bills() {
-        return $this->hasMany(Bill::class);
+    public function bill() {
+        return $this->belongsTo(Bill::class);
     }
 }
