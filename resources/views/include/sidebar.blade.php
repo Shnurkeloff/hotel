@@ -50,6 +50,11 @@
                             <span>Регистрация</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('account.index') }}" class="waves-effect">
+                            <span>Счета</span>
+                        </a>
+                    </li>
                     <li class="menu-title">Дополнительная информация</li>
                     <li>
                         <a href="" class="waves-effect">

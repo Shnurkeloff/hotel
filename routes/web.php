@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
     Route::resource('contract', 'ContractController')->names('contract');
     Route::resource('client', 'ClientController')->names('client');
     Route::resource('service', 'ServiceController')->names('service');
+    Route::resource('account', 'AccountController')->names('account');
     //Route::resource('registration', 'RegistrationController')->names('registration');
 
     Route::get('reservation', 'ReservationController@index')->name('reservation.index');
