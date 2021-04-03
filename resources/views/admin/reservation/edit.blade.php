@@ -93,7 +93,6 @@
                             <label for="deleted_at">Удалено</label>
                             <input type="text" id="deleted_at" class="form-control" value="{{ $item->deleted_at }}" disabled>
                         </div>
-
                         <form action="{{ route('reservation.destroy', $item->id) }}" method="POST">
                             @method('DELETE')
                             @csrf

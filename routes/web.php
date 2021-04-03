@@ -26,5 +26,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
     Route::resource('contract', 'ContractController')->names('contract');
     Route::resource('client', 'ClientController')->names('client');
     Route::resource('service', 'ServiceController')->names('service');
-    Route::resource('reservation', 'ReservationController')->names('reservation');
+
+    Route::get('reservation', 'ReservationController@index')->name('reservation.index');
+    Route::get('reservation/create', 'ReservationController@create')->name('reservation.create');
+    Route::post('reservation/store', 'ReservationController@store')->name('reservation.store');
+    Route::get('reservation/edit/{id}', 'ReservationController@edit')->name('reservation.edit');
+    Route::patch('reservation/edit/{id}/{old_id}', 'ReservationController@update')->name('reservation.update');
+    Route::delete('reservation/destroy/{id}', 'ReservationController@destroy')->name('reservation.destroy');
 });
