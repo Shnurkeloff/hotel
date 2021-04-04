@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Bill;
 use App\Models\Contract;
 use App\Models\Registration;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -41,10 +42,17 @@ class RegistrationController extends Controller
     public function edit($id)
     {
         $item = Registration::find($id);
+
+        $price_day = $item->bill->category->price_day;
+        $first_day = new Carbon($item->date_settlement);
+        $last_day = new Carbon($item->date_eviction);
+        $difference_days = $last_day->diff($first_day)->days;
+        $payout = $difference_days * $price_day;
+
         $contracts = Contract::all();
         $bills = Bill::where('status', 'Свободно')->get();
 
-        return view('admin.registration.edit', compact('item', 'contracts', 'bills'));
+        return view('admin.registration.edit', compact('item', 'contracts', 'bills', 'payout'));
     }
 
     public function update(Request $request, $id, $old_bill_id)

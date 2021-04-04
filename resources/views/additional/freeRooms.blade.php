@@ -16,26 +16,25 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Информация об услугах</div>
+                    <div class="card-header">Информация о свободных номерах</div>
 
                     <div class="card-body">
 
-                        <a href="{{ route('service.create') }}"><button class="btn btn-success mb-3">Добавить</button></a>
-
+                        <button id="btnExport" onclick="fnExcelReport();" class="btn btn-success"> EXPORT </button>
                         <table id="datatable-example" class="table table-sm table-striped font-rob">
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Название услуги</th>
-                                <th>Цена (в руб.)</th>
+                                <th>Название номера</th>
+                                <th>Статус</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($items as $item)
-                                <tr>
-                                    <th><a href="{{ route('service.edit', $item->id) }}">{{ $item->id }}</a></th>
-                                    <th><a href="{{ route('service.edit', $item->id) }}">{{ $item->name }}</a></th>
-                                    <th><a href="{{ route('service.edit', $item->id) }}">{{ $item->price }}</a></th>
+                                <tr @if($item->status == 'Свободно') style="background-color: greenyellow;" @endif>
+                                    <th>{{ $item->id }}</th>
+                                    <th>{{ $item->name }}</th>
+                                    <th>{{ $item->status }}</th>
                                 </tr>
                             @endforeach
                             </tbody>

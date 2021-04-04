@@ -43,3 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
     Route::patch('registration/edit/{id}/{old_id}', 'RegistrationController@update')->name('registration.update');
     Route::delete('registration/destroy/{id}', 'RegistrationController@destroy')->name('registration.destroy');
 });
+
+Route::get('additional/free-rooms', 'AdditionalController@rooms')->name('additional.index');
+Route::get('additional/guests', 'AdditionalController@guest')->name('additional.guest');
+Route::get('additional/soon-free', 'AdditionalController@soon_free')->name('additional.soon');

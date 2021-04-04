@@ -15,8 +15,8 @@ class Bill extends Model
         return $this->belongsTo(Service::class);
     }
 
-    public function registration() {
-        return $this->belongsTo(Registration::class);
+    public function registrations() {
+        return $this->hasMany(Registration::class);
     }
 
     public function category() {

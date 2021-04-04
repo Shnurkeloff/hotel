@@ -57,13 +57,18 @@
                     </li>
                     <li class="menu-title">Дополнительная информация</li>
                     <li>
-                        <a href="" class="waves-effect">
-                            <span>Устаревшие компьютеры</span>
+                        <a href="{{ route('additional.index') }}" class="waves-effect">
+                            <span>Свободные номера</span>
                         </a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect">
-                            <span>Перемещение компьютеров</span>
+                        <a href="{{ route('additional.guest') }}" class="waves-effect">
+                            <span>Список постояльцев</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('additional.soon') }}" class="waves-effect">
+                            <span>Освобождающиеся номера</span>
                         </a>
                     </li>
                 </ul>

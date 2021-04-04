@@ -28,7 +28,9 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin.client.create');
+        $users = User::all();
+        $contracts = Contract::all();
+        return view('admin.client.create', compact('users', 'contracts'));
     }
 
     /**
@@ -40,18 +42,6 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $data = $request->input();
-        $user_id = User::where('login', $data['user_id'])->value('id');
-        $contract_id = Contract::where('id', $data['contract_id'])->value('id');
-
-        if (empty($user_id))
-            return redirect()->route('client.create')->with('error', 'Такого пользователя не существует');
-
-        if (empty($contract_id))
-            return redirect()->route('client.create')->with('error', 'Такого договора не существует');
-
-        $data['user_id'] = $user_id;
-        $data['contract_id'] = $contract_id;
-
         $result = Client::create($data);
 
         if (empty($result))

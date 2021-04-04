@@ -16,26 +16,29 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Информация об услугах</div>
+                    <div class="card-header">Информация о свободных номерах</div>
 
                     <div class="card-body">
 
-                        <a href="{{ route('service.create') }}"><button class="btn btn-success mb-3">Добавить</button></a>
-
+                        <button id="btnExport" onclick="fnExcelReport();" class="btn btn-success"> EXPORT </button>
                         <table id="datatable-example" class="table table-sm table-striped font-rob">
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Название услуги</th>
-                                <th>Цена (в руб.)</th>
+                                <th>ФИО постояльца</th>
+                                <th>Номер договора</th>
+                                <th>Дата окончания договора</th>
+                                <th>Описание</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($items as $item)
+                            @foreach($guests as $guest)
                                 <tr>
-                                    <th><a href="{{ route('service.edit', $item->id) }}">{{ $item->id }}</a></th>
-                                    <th><a href="{{ route('service.edit', $item->id) }}">{{ $item->name }}</a></th>
-                                    <th><a href="{{ route('service.edit', $item->id) }}">{{ $item->price }}</a></th>
+                                    <th>{{ $guest->id }}</th>
+                                    <th>{{ $guest->name }}</th>
+                                    <th>{{ $guest->contract_id }}</th>
+                                    <th>{{ $guest->date_completion }}</th>
+                                    <th>{{ $guest->description }}</th>
                                 </tr>
                             @endforeach
                             </tbody>

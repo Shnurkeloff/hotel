@@ -27,7 +27,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Услуга</th>
-                                <th>Номер регистрации</th>
+                                <th>Название номера</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -35,7 +35,7 @@
                                 <tr>
                                     <th><a href="{{ route('account.edit', $item->id) }}">{{ $item->id }}</a></th>
                                     <th><a href="{{ route('account.edit', $item->id) }}">{{ $item->service->name }}</a></th>
-                                    <th><a href="{{ route('account.edit', $item->id) }}">{{ $item->registration->id }}</a></th>
+                                    <th><a href="{{ route('account.edit', $item->id) }}">{{ $item->registration->bill->name }}</a></th>
                                 </tr>
                             @endforeach
                             </tbody>

@@ -35,7 +35,7 @@
                             @foreach($items as $item)
                                 <tr>
                                     <th><a href="{{ route('reservation.edit', $item->id) }}">{{ $item->id }}</a></th>
-                                    <th><a href="{{ route('reservation.edit', $item->id) }}">{{ $item->reservation_status }}</a></th>
+                                    <th><a href="{{ route('reservation.edit', $item->id) }}">{{ $item->status }}</a></th>
                                     <th><a href="{{ route('reservation.edit', $item->id) }}">{{ $item->reservation_date }}</a></th>
                                     <th><a href="{{ route('reservation.edit', $item->id) }}">{{ $item->bill->name }}</a></th>
                                 </tr>

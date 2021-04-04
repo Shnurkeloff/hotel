@@ -25,14 +25,14 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Услуга</th>
-                                        <th>Номер регистрации</th>
+                                        <th>Название номера</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <th>{{ $item->id }}</a></th>
                                         <th>{{ $item->service->name }}</a></th>
-                                        <th>{{ $item->registration->id }}</a></th>
+                                        <th>{{ $item->registration->bill->name }}</a></th>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -45,17 +45,17 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="service_id">Название номера</label>
-                                        <select name="service_id" id="service_id" class="form-control">
+                                        <select name="service_id" id="service_id" class="form-control" disabled>
                                             @foreach($services as $service)
                                                 <option value="{{ $service->id }}" @if($service->id == $item->service_id) selected @endif >{{ $service->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="registration_id">Номер регистрации</label>
-                                        <select name="registration_id" id="registration_id" class="form-control">
+                                        <label for="registration_id">Название номера</label>
+                                        <select name="registration_id" id="registration_id" class="form-control" disabled>
                                             @foreach($registrations as $registration)
-                                                <option value="{{ $registration->id }}" @if($registration->id == $item->registration_id) selected @endif >{{ $registration->id }}</option>
+                                                <option value="{{ $registration->id }}" @if($registration->bill_id == $item->registration->bill->id) selected @endif >{{ $item->registration->bill->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -72,6 +72,11 @@
                     <div class="card-body">
                         <h5>ID:{{ $item->id }}</h5>
                         <hr>
+
+                        <div class="form-group">
+                            <label for="payout">Выплата за услугу: {{ $item->service->name }}</label>
+                            <input type="text" id="payout" class="form-control" value="{{ $payout }} руб." disabled>
+                        </div>
 
                         <div class="form-group">
                             <label for="created_at">Создано</label>

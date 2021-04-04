@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Account;
 use App\Models\Registration;
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -72,10 +73,17 @@ class AccountController extends Controller
     public function edit($id)
     {
         $item = Account::find($id);
+
+        $first_day = new Carbon($item->registration->date_settlement);
+        $last_day = new Carbon($item->registration->date_eviction);
+        $price_day = $item->service->price;
+        $difference_days = $last_day->diff($first_day)->days;
+        $payout = $difference_days * $price_day;
+
         $services = Service::all();
         $registrations = Registration::all();
 
-        return view('admin.account.edit', compact('item', 'services', 'registrations'));
+        return view('admin.account.edit', compact('item', 'services', 'registrations', 'payout'));
     }
 
     /**

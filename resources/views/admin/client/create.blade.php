@@ -36,11 +36,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="user_id">Логин пользователя</label>
-                                        <input type="text" placeholder="Введите логин пользователя" class="form-control" id="user_id" name="user_id">
+                                        <select name="user_id" id="user_id" class="form-control">
+                                            @foreach($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->login }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="contract_id">Номер договора</label>
-                                        <input type="text" placeholder="Введите номер договора" class="form-control" id="contract_id" name="contract_id">
+                                        <select name="contract_id" id="contract_id" class="form-control">
+                                            @foreach($contracts as $contract)
+                                                <option value="{{ $contract->id }}">{{ $contract->id }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <button type="submit" class="btn btn-success" class="form-control">Добавить</button>
                                 </form>

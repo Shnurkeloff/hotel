@@ -21,7 +21,6 @@
                     <div class="card-body">
 
                         <a href="{{ route('category.create') }}"><button class="btn btn-success mb-3">Добавить</button></a>
-
                         <table id="datatable-example" class="table table-sm table-striped font-rob">
                             <thead>
                             <tr>
@@ -29,7 +28,7 @@
                                 <th>Название категории</th>
                                 <th>Количество мест</th>
                                 <th>Количество комнат</th>
-                                <th>Стоимость за сутки</th>
+                                <th>Стоимость за сутки (в руб.)</th>
                                 <th>Доп. инфо</th>
                             </tr>
                             </thead>

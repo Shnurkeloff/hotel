@@ -88,6 +88,11 @@
                         <hr>
 
                         <div class="form-group">
+                            <label for="payout">Счет за оплату номера</label>
+                            <input type="text" id="payout" class="form-control" value="{{ $payout }} руб." disabled>
+                        </div>
+
+                        <div class="form-group">
                             <label for="created_at">Создано</label>
                             <input type="text" id="created_at" class="form-control" value="{{ $item->created_at }}" disabled>
                         </div>
